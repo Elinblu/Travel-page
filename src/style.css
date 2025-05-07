@@ -1,6 +1,17 @@
+html {
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: whitesmoke;
+  overflow-x: hidden;
 }
 
 .container {
@@ -42,6 +53,8 @@ body {
 
 .grid-3-columns-with-first-narrow {
   grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  gap: 64px;
 }
 
 .embed {
@@ -56,6 +69,8 @@ body {
 .card {
   background: white;
   margin: 30px 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .card-header.grid {
@@ -85,13 +100,21 @@ body {
 }
 
 section {
-  max-width: 100%;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 100px 20px;
+  box-sizing: border-box;
 }
 
 section.secondary {
   background: #f8f8f8;
+}
+
+section,
+.card-body,
+.card-footer {
+  text-align: center;
 }
 
 header {
@@ -231,6 +254,7 @@ footer a {
 }
 
 .table-wrapper {
+  width: 100%;
   overflow-x: auto;
   margin-top: 30px;
 }
@@ -262,24 +286,60 @@ tbody td {
 
 @media (max-width: 960px) {
   header {
-    padding: 60px 0;
+    padding: 40px 20px;
+    background-position: center;
+  }
+
+  .container {
+    padding: 0 16px;
   }
 
   header h1 {
-    font-size: 48px;
+    font-size: 28px;
+    line-height: 1.1;
   }
+
   header h2 {
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1.4;
   }
+
   header h3 {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  header a {
     font-size: 12px;
+    padding: 10px 20px;
+    margin-top: 16px;
   }
 
   section {
-    padding: 30px;
+    padding: 30px 16px;
   }
-  .card-header img {
-    display: none;
+
+  .card,
+  .card-body,
+  .card-footer {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .grid-2-columns,
+  .grid-3-columns,
+  .grid-3-columns-with-first-narrow {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header.grid.grid-2-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .card-body,
+  .card-footer {
+    padding: 20px;
   }
 
   .embed {
